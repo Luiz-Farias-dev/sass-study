@@ -1,0 +1,33 @@
+$cor-principal: blueviolet;
+$cor-secundaria: aquamarine;
+
+@mixin reset {
+  padding: 0;
+  margin: 0;
+}
+
+@mixin cor-e-texto($cor-de-fundo, $cor-do-texto) {
+  width: 50%;
+  background-color: $cor-de-fundo;
+  .texto {
+    font-size: 150px;
+    margin-top: 40%;
+    text-align: center;
+    color: $cor-do-texto;
+  }
+}
+
+* {
+    @include reset;
+  }
+
+.container {
+  display: flex;
+  height: 100vh;
+  .esquerdo {
+    @include cor-e-texto($cor-principal, $cor-secundaria);
+  }
+  .direito {
+    @include cor-e-texto($cor-secundaria, $cor-principal);
+  }
+}
